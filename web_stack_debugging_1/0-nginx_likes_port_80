@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-cd /etc/nginx/sites-enabled
-sed -i -g 'g/8080/80'  default
-service nginx start
+#debugging the issue that cause port 80 not to listen
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
